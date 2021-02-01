@@ -20,11 +20,11 @@ const routes = {
             project = req.body.data.issue.project.slug;
         } else {
             // Legacy webhook integration, requires token
-            if (!utils.verifySecret(req)) {
-                console.warn('Rejected legacy webhook request without correct secret.');
-                res.status(403).end();
-                return;
-            }
+            // if (!utils.verifySecret(req)) {
+            //     console.warn('Rejected legacy webhook request without correct secret.');
+            //     res.status(403).end();
+            //     return;
+            // }
             event = utils.formatLegacyWebhookEvent(req.body);
             project = req.body.project_slug;
         }
